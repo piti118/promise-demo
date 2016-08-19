@@ -7,8 +7,11 @@ app.get('/fastadd/:number', (req, res) => {
 });
 
 app.get('/slowadd/:number', (req, res) => {
+  console.log('Starting Complicated Calculation Wait.....')
   setTimeout(() => {
-    res.json(parseInt(req.params.number, 10) * 2);
+    const result = parseInt(req.params.number, 10) * 2
+    console.log('Calculation Done', result)
+    res.json(result);
   }, 1000);
 });
 
